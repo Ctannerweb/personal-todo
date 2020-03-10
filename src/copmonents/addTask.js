@@ -7,7 +7,7 @@ class AddTask extends Component {
 
     this.state = {
       todoTask: [],
-      message: ''
+      message: '',
     }
     
     this.handleClickChange = this.handletodoTask.bind(this)
