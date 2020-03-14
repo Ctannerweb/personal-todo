@@ -2,7 +2,7 @@
   grid-area: header;
   display: flex;
   align-items: baseline;
-  border-bottom: var(--color-black-soft) solid;
+  justify-content: center;
 
   @media (max-width: 599px) {
     margin-bottom: 1em;
@@ -17,7 +17,6 @@
 }
 
 .header__display {
-  margin-right: auto;
-  margin-left: 16px;
-  color: var(--color-brand-blue-light)
+  color: var(--color-brand-4);
+  text-align: center;
 }

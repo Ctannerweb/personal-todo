@@ -1,0 +1,41 @@
+:root {
+  /* BASE COLORS */
+  --color-black: hsl(0, 0%, 0%);
+  --color-white: rgb(247, 247, 247);
+
+  /* BRAND COLORS */
+  --color-brand-1: hsl(198, 45%, 90%);
+  --color-brand-2: hsl(198, 45%, 80%);
+  --color-brand-3: hsl(198, 80%, 33%);
+  --color-brand-4: hsl(198, 41%, 23%);
+  --color-brand-5: hsl(198, 44%, 15%);
+  --color-brand-6: hsl(198, 73%, 7%);
+
+  /* GRAYS */
+  --color-gray-1: hsl(0, 0%, 98%);
+  --color-gray-2: hsl(0, 15%, 90%);
+  --color-gray-3: hsl(0, 0%, 60%);
+  --color-gray-4: hsl(0, 0%, 30%);
+  --color-gray-5: hsl(0, 0%, 11%);
+
+  /* MISC */
+  --color-link: hsl(150, 100%, 22%);
+  --color-warning: hsl(14, 69%, 43%);
+
+  /* FONT FAMILIES */
+  --font-mukta: 'Mukta', sans-serif;
+  --font-noto-sans: 'Noto Sans', sans-serif;
+
+  /* FONT WEIGHTS */
+  --weight-regular: 400;
+  --weight-semi-bold: 600;
+  --weight-extra-bold: 800;
+
+  /* GLOBAL MEASUREMENTS */
+  --gutter: 16px;
+  --button-border-focus-radius: 6px;
+  --button-border-radius: 4px;
+
+  /* TRANSITION */
+  --global-transition: .3s ease;
+}

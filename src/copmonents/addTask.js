@@ -6,15 +6,15 @@ class AddTask extends Component {
     super(props);
 
     this.state = {
-      todoTask: [],
-      message: '',
+      todoTask: ['Example TODO Task'],
+      message: ''
     }
     
-    this.handleClickChange = this.handletodoTask.bind(this)
+    this.handleTodoTask = this.handleTodoTask.bind(this)
     this.removeTask = this.removeTask.bind(this)
   }
 
-  handletodoTask(e) {
+  handleTodoTask(e) {
     e.preventDefault();
     const {todoTask} = this.state;
     const newTask = this.newTask.value;
@@ -22,10 +22,11 @@ class AddTask extends Component {
     const isOnTheList = todoTask.includes(newTask);
     if(isOnTheList) {
       this.setState({
-        message: 'This Task is already on the list'
+        message: 'That Task is already on the list'
       })
 
     } else {
+
       newTask !== '' && this.setState({
         todoTask: [...todoTask, newTask],
         message: ''
@@ -34,14 +35,33 @@ class AddTask extends Component {
 
     this.addForm.reset();
   }
+
   removeTask(task) {
-    const newtodoTask = this.state.todoTask.filter(todoTask => {
+    const newTodoTask = this.state.todoTask.filter(todoTask => {
       return todoTask !== task;
     })
 
+
     this.setState({
-      todoTask: [...newtodoTask]
+      todoTask: [...newTodoTask]
     })
+
+    if(newTodoTask.length === 0) {
+      this.setState({
+        message: 'There are no TODOs left!!!'
+      })
+    }
+  }
+
+  removeAllTodoTasks(e) {
+    const {todoTask} = this.state;
+
+    if(todoTask !== 0) {
+      this.setState({
+        todoTask: [],
+        message: 'There are no TODOs left!!!'
+      })
+    }
   }
 
   render () {
@@ -49,29 +69,37 @@ class AddTask extends Component {
 
     return (
       <>
-      <form ref={input => this.addForm = input} onSubmit={(e) => {this.handletodoTask(e)}}>
-        <label htmlFor="newTask">Add New Task</label>
-        <input id="newTask" ref={input => this.newTask = input} type="text"/>
+      <section>
+        <form className="add-task" ref={input => this.addForm = input} onSubmit={(e) => {this.handleTodoTask(e)}}>
+          <label className="t-hidden" htmlFor="newTask">Add New Task</label>
+          <input className="add-task__input t-body" placeholder="Enter new TODO" id="newTask" ref={input => this.newTask = input} type="text"/>
 
-        <button type="submit" id="newTask">Add Task</button>
-      </form>
+          <button className="add-task__new-task t-body" type="submit">Add Task</button>
+        </form>
 
-      {
-        message !== '' && <p>{message}</p>
-      }
-
-      <ul>
         {
-          todoTask.map(todoTask => {
-            return (
-              <>
-              <Task onClick={this.removeTask} taskCopy={todoTask}/>
-              <button onClick={(e) => this.removeTask(todoTask)} className="task__remove-task">Remove Task</button>
-              </>
-            )
-          })
+          (message !== '' || todoTask.length === 0) && <p className="task-message t-section-heading">{message}</p>
         }
-      </ul>
+        {
+          todoTask.length > 0 &&
+          <>
+          <ul>
+            {
+              todoTask.map((todoTask, index) => {
+                return (
+                  <>
+                  <Task key={index} triggerRemoveTask={(e) => this.removeTask(todoTask)} taskCopy={todoTask}/>
+                  </>
+                )
+              })
+            }
+          </ul>
+          <div className="add-task__button-wrap">
+            <button className="add-task__remove-tasks t-button" onClick={(e) => this.removeAllTodoTasks(todoTask)}>Remove all tasks</button>
+          </div>
+          </>
+        }
+      </section>
       </>
     )
   }
