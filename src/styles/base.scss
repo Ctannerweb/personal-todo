@@ -27,6 +27,7 @@ time, mark, audio, video {
 
 ol, ul, li {
   margin: 0;
+  padding: 0;
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
@@ -44,7 +45,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  font-family: var(--font-foo);
+  font-family: var(--font-noto-sans);
   line-height: 1;
   background-color: var(--color-brand-1);
   font-display: swap;
@@ -70,11 +71,12 @@ button {
   padding: 0;
   width: auto;
   overflow: visible;
-  font: inherit;
+  font-family: var(--font-noto-sans);
   line-height: normal;
   text-align: left;
   color: inherit;
   background: transparent;
+  text-transform: none;
   border: none;
   cursor: pointer;
   -webkit-font-smoothing: inherit;
@@ -88,10 +90,13 @@ button {
 }
 
 .App {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
   display: grid;
   min-height: 100vh;
   grid-template-areas:
-  "hero"
+  "header"
   "main"
   "footer";
   grid-template-rows: auto 1fr;

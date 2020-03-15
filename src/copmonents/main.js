@@ -5,7 +5,7 @@ class Main extends Component {
 
   render () {
     return (
-      <main>
+      <main className="main">
         <AddTask />
       </main>
     )
