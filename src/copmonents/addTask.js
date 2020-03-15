@@ -71,10 +71,10 @@ class AddTask extends Component {
       <>
       <section>
         <form className="add-task" ref={input => this.addForm = input} onSubmit={(e) => {this.handleTodoTask(e)}}>
-          <label className="t-hidden" htmlFor="newTask">Add New Task</label>
+          <label className="t-hidden" htmlFor="newTask">Add New TODO</label>
           <input className="add-task__input t-body" placeholder="Enter new TODO" id="newTask" ref={input => this.newTask = input} type="text"/>
 
-          <button className="add-task__new-task t-body" type="submit">Add Task</button>
+          <button className="add-task__new-task t-body" type="submit">Add TODO</button>
         </form>
 
         {
@@ -88,14 +88,14 @@ class AddTask extends Component {
               todoTask.map((todoTask, index) => {
                 return (
                   <>
-                  <Task key={index} triggerRemoveTask={(e) => this.removeTask(todoTask)} taskCopy={todoTask}/>
+                  <Task key={index} triggerRemoveTask={(e) => this.removeTask(todoTask)} taskCopy={todoTask} taskID={"task" + index}/>
                   </>
                 )
               })
             }
           </ul>
           <div className="add-task__button-wrap">
-            <button className="add-task__remove-tasks t-button" onClick={(e) => this.removeAllTodoTasks(todoTask)}>Remove all tasks</button>
+            <button className="add-task__remove-tasks t-button" onClick={(e) => this.removeAllTodoTasks(todoTask)}>Remove all TODOs</button>
           </div>
           </>
         }
