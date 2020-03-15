@@ -81,6 +81,10 @@
   margin-left: 16px;
   margin-right: 16px;
   flex-grow: 1;
+  
+  [data-state-completed="true"] & {
+    opacity: .3;
+  }  
 }
 
 .task__remove-task {
