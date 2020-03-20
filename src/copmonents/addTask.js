@@ -41,7 +41,6 @@ class AddTask extends Component {
       return todoTask !== task;
     })
 
-
     this.setState({
       todoTask: [...newTodoTask]
     })
@@ -74,12 +73,13 @@ class AddTask extends Component {
           <label className="t-hidden" htmlFor="newTask">Add New TODO</label>
           <input className="add-task__input t-body" placeholder="Enter new TODO" id="newTask" ref={input => this.newTask = input} type="text"/>
 
-          <button className="add-task__new-task t-body" type="submit">Add TODO</button>
+          <button className="add-task__new-task t-body" type="submit">Add</button>
         </form>
 
         {
           (message !== '' || todoTask.length === 0) && <p className="task-message t-section-heading">{message}</p>
         }
+        
         {
           todoTask.length > 0 &&
           <>
@@ -95,7 +95,7 @@ class AddTask extends Component {
             }
           </ul>
           <div className="add-task__button-wrap">
-            <button className="add-task__remove-tasks t-button" onClick={(e) => this.removeAllTodoTasks(todoTask)}>Remove all TODOs</button>
+            <button className="add-task__remove-tasks t-button" onClick={(e) => this.removeAllTodoTasks(todoTask)}>Remove All</button>
           </div>
           </>
         }

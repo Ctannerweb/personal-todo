@@ -29,7 +29,7 @@ class Task extends Component {
           <span className="task__checkbox__custom"></span>
         </label>
         <p className="task__copy t-body">{taskCopy}</p>
-        <button onClick={triggerRemoveTask} className="task__remove-task t-button">Remove TODO</button>
+        <button onClick={triggerRemoveTask} className="task__remove-task t-button">Remove</button>
       </li>
     )
   }
