@@ -1,4 +1,17 @@
 .main {
   padding: 16px 16px 4em 16px;
   grid-area: main;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.section-support {
+  margin-top: 4rem;
+  color: var(--color-brand-4);
+  text-align: center;
+}
+
+.section__support-heading {
+  margin-bottom: .8rem;
 }
